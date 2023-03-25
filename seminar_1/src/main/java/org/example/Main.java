@@ -1,15 +1,18 @@
 package org.example;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-//        String[] toys_list = {"wooden horse", "cubes", "paints", "puzzle",
-//                                "railroad", "doll Barbie", "doll Ken",
-//                                "comics", "blaster", "car", "light saber", "skate"};
-//        String[] tools_list = {"wrench", "hammer", "screwdriver", "tape measure",
-//                                "pliers", "spirit level", "ladder",
-//                                "handsaw", "drill", "file", "putty knife", "plunger"};
+        ArrayList<String> warehouse_toys_list = new ArrayList<> (Arrays.asList(
+                                "wooden horse", "cubes", "paints", "puzzle",
+                                "railroad", "doll Barbie", "doll Ken",
+                                "comics", "blaster", "car", "light saber", "skate"));
+        ArrayList<String> warehouse_tools_list = new ArrayList<> (Arrays.asList(
+                                "wrench", "hammer", "screwdriver", "tape measure",
+                                "pliers", "spirit level", "ladder",
+                                "handsaw", "drill", "file", "putty knife", "plunger"));
         Category toys = new Category("toys");
         Category tools = new Category("tools");
         System.out.println(toys.catname);
@@ -22,36 +25,21 @@ public class Main {
         System.out.println("jh");
         System.out.println(btoy.name);
         User user1 =  new User("Вася Ложкин");
-        if (user1 instanceof User) {
-            System.out.println("yes");
-        }
-
-//        user1.
-//        new Basket();
-//        Basket().addItems();
-//        ArrayList<String> item = Basket().getItems();
-//        ArrayList<String> = new (user1.Basket);
-//
-//        Basket user1_bask = new Basket();
-        Random random = new Random();
-        for (int i = 0; i < 5; i++) {
-            int randomlist = random.nextInt(2);
-            if (randomlist == 0) {
-                int x = random.nextInt(11);
-                String item = Category.toys_list[x];
-                System.out.print(item + ",");
-                user1.addItems(item);
-            }
-            if (randomlist == 1) {
-                int x = random.nextInt(11);
-                String item = Category.tools_list[x];
-                System.out.print(item + ",");
-                user1.addItems(item);
-            }
-        }
+        ArrayList<String> a = BuySomething.Buy();
+        user1.copyItems(a);
+        warehouse_toys_list = BuySomething.DeleteItem(a, warehouse_toys_list);
+        warehouse_tools_list = BuySomething.DeleteItem(a, warehouse_tools_list);
+        System.out.println(user1.login + " купил " + user1.getItems());
+        System.out.println("На складе осталось \n" + warehouse_toys_list + "\n" + warehouse_tools_list);
+        User user2 =  new User("Маша Пупкина");
+        a = BuySomething.Buy();
+        user2.copyItems(a);
+        warehouse_toys_list = BuySomething.DeleteItem(a, warehouse_toys_list);
+        warehouse_tools_list = BuySomething.DeleteItem(a, warehouse_tools_list);
         System.out.println();
-        user1.print(user1.getItems());
-
+        System.out.println(user2.login + " купил " + user2.getItems());
+        System.out.println("На складе осталось \n" + warehouse_toys_list +"\n"+ warehouse_tools_list);
+        System.out.println();
 
     }
 }

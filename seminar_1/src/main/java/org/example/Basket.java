@@ -8,8 +8,8 @@ public class Basket{
     public ArrayList<String> getItems() {
         return this.items;
     }
-    public void addItems(String item) {
-        this.items.add(item);
+    public void copyItems(ArrayList<String> item) {
+        this.items = (ArrayList<String>) item.clone();
     }
     public void print(ArrayList<String> items) {
         for (int i = 0; i < this.items.size(); i++) {
