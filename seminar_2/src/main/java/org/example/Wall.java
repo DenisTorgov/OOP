@@ -1,12 +1,18 @@
 package org.example;
-import org.example.BaseClass;
 public class Wall implements Barrier{
-
+    protected double height;
+    public Wall (double height) {
+        this.height = height;
+    }
     @Override
     public void GoThrough(BaseClass a) {
-//        BaseClass.Jump();
-        System.out.println("Must jump");
         System.out.println(a);
-        a.Jump();
+        if (a.Jump() >= height) {
+            System.out.println("Участник " + a.name + " перепрыгнул стену высотой " + this.height);
+        } else {
+            System.out.println("Участник " + a.name + " не смог перепрыгнуть стену высотой " + this.height);
+            System.out.println("Участник " + a.name + " выбывает с соревнования");
+            a.active = 0;
+        }
     }
 }

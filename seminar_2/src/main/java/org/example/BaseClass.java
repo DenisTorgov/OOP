@@ -1,9 +1,10 @@
 package org.example;
 
 public abstract class BaseClass {
+    public int active = 1;
     protected String name;
     public static int count;
-    static { count = 0; }
+    static { count = 0;}
     public BaseClass() {
         count++;
     }
@@ -11,10 +12,12 @@ public abstract class BaseClass {
         this.name = name;
         count++;
     }
-    public void Jump() {
+    public double Jump() {
         System.out.println("jump");
+        return 0.0;
     }
-    public void Run() {
+    public double Run() {
         System.out.println("Run");
+        return 0.0;
     }
 }

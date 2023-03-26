@@ -23,31 +23,25 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        Random random = new Random();
         BaseClass[] party = {
                 new Human("Mike"),new Cat("Kitty"), new Robot("Mr. Robot")
         };
         Barrier[] barriers = {
-                new Wall(), new RaceTrack(), null
+                new Wall(random.nextInt(2) + random.nextDouble()),
+                new RaceTrack(random.nextInt(10) + random.nextDouble()),
+                null
         };
         System.out.println("Party ready" + BaseClass.count);
-        for (int i = 0; i < party.length -1; i++) {
-            for (int j = 0; j < barriers.length -1; i++) {
+        for (int i = 0; i < party.length; i++) {
+            for (int j = 0; j < barriers.length; j++) {
+                if (party[i].active == 0) {continue;}
                 if (barriers[j] != null) {
                     barriers[j].GoThrough(party[i]);
                 } else {
                     System.out.println("Just relax and go");
                 }
-
-            }
-        }
-
-
-//        party[0].GoThrough(barriers[0]);
-//        Random random = new Random();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < barriers.length; j++) {
-//                party[i].GoThrough(barriers[j]);
-                party[0].Run();
+                System.out.println(i +" | " + j);
             }
         }
     }
