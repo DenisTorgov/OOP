@@ -1,5 +1,7 @@
 package org.example;
 import org.example.BaseClass;
+
 public interface Barrier {
-    void GoThrough ();
+//    public BaseClass a = null;
+    void GoThrough (BaseClass a);
 }

@@ -26,16 +26,27 @@ public class Main {
         BaseClass[] party = {
                 new Human("Mike"),new Cat("Kitty"), new Robot("Mr. Robot")
         };
+        Barrier[] barriers = {
+                new Wall(), new RaceTrack(), null
+        };
         System.out.println("Party ready" + BaseClass.count);
-        for (int i = 0; i < party.length; i++) {
-            party[i].Jump();
+        for (int i = 0; i < party.length -1; i++) {
+            for (int j = 0; j < barriers.length -1; i++) {
+                if (barriers[j] != null) {
+                    barriers[j].GoThrough(party[i]);
+                } else {
+                    System.out.println("Just relax and go");
+                }
 
+            }
         }
-        Random random = new Random();
-        for (int i = 0; i < 5; i++) {
-            if (random.nextInt(2) == 1) {
-                party[0].Jump();
-            } else {
+
+
+//        party[0].GoThrough(barriers[0]);
+//        Random random = new Random();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < barriers.length; j++) {
+//                party[i].GoThrough(barriers[j]);
                 party[0].Run();
             }
         }
