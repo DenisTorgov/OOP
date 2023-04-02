@@ -17,9 +17,9 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Random random =new Random();
-        Calc n1 = new Calc<>(random.nextInt());
-        Calc n2 = new Calc<>(random.nextInt() + random.nextDouble());
-        System.out.println("First " + n1.doubleValue() + " Second " + n2.doubleValue());
+        Calc n1 = new Calc<>(random.nextInt(10));
+        Calc n2 = new Calc<>(random.nextInt(10) + random.nextDouble());
+        System.out.printf("First %.2f | Second %.2f \n", n1.doubleValue(), n2.doubleValue());
         System.out.println("Sum result " + n1.sum(n2));
         System.out.println("Mult result " + n1.mult(n2));
 
