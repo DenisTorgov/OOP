@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Random;
-
 public class Calc<T extends Number> {
     private T item;
 
@@ -12,9 +10,22 @@ public class Calc<T extends Number> {
         this.item = item;
         return item;
     }
-    public Double sum (T n1, T n2) {
-        Double num = n1.doubleValue() + n2.doubleValue();
+    public double doubleValue() {
+        return item.doubleValue();
+    }
+    public Double sum (Calc num2) {
+        Double num = this.item.doubleValue() + num2.doubleValue();
         return num;
     }
+    public Double mult (Calc num2) {
+        Double num = this.item.doubleValue() * num2.doubleValue();
+        return num;
+    }
+
+//    public static Double sum (Calc n1, Calc n2) {
+//        Double num = n1.toDouble() + n2.toDouble();
+//        return num;
+//    }
+
 
 }

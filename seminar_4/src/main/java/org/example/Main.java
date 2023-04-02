@@ -19,7 +19,9 @@ public class Main {
         Random random =new Random();
         Calc n1 = new Calc<>(random.nextInt());
         Calc n2 = new Calc<>(random.nextInt() + random.nextDouble());
-        System.out.println("First " + n1 + "Second " + n2);
-        System.out.println("Sum result " + Calc.sum(n1, n2));
+        System.out.println("First " + n1.doubleValue() + " Second " + n2.doubleValue());
+        System.out.println("Sum result " + n1.sum(n2));
+        System.out.println("Mult result " + n1.mult(n2));
+
     }
 }
