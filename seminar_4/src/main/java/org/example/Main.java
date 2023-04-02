@@ -18,10 +18,11 @@ public class Main {
         System.out.println("Hello world!");
         Random random =new Random();
         Calc n1 = new Calc<>(random.nextInt(10));
-        Calc n2 = new Calc<>(random.nextInt(10) + random.nextDouble());
+        Calc n2 = new Calc<>(Math.ceil((random.nextInt(10) + random.nextDouble())*100)/100);
         System.out.printf("First %.2f | Second %.2f \n", n1.doubleValue(), n2.doubleValue());
-        System.out.println("Sum result " + n1.sum(n2));
-        System.out.println("Mult result " + n1.mult(n2));
-
+        System.out.println("Sum result " + Math.ceil((n1.sum(n2))*100)/100);
+        System.out.println("Mult result " + Math.ceil((n1.mult(n2))*100)/100);
+        System.out.println("Binary int result " + n1.BinaryNumb());
+        System.out.println("Binary double result " + n2.BinaryNumb());
     }
 }
