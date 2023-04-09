@@ -17,5 +17,9 @@ public class Main {
         List<User> sg = StudyGroupService.StudyGroupAddTeacher (teacher, studentslist);
         Controller.ShowGroup(sg);
 
+        List<User> VIPstudentslist = Controller.CreateVIPStudentsList();
+        Teacher VIPteacher = Controller.CreateVIPTeacher (VIPstudentslist);
+        List<User> VIPsg = StudyGroupService.StudyGroupAddTeacher (VIPteacher, VIPstudentslist);
+        Controller.ShowGroup(VIPsg);
     }
 }
