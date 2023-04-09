@@ -8,13 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
+//    public static List<User> CreateStudentsList () {
+//        List<User> study_group = (List<User>) new CreateStudentsList();
+//        return study_group;
+//    }
+
     public static List<User> CreateStudentsList () {
-        List<User> study_group = (List<User>) new CreateStudentsList();
+        List<User> study_group = CreateStudentsList.CreateList();
         return study_group;
     }
-
     public static Teacher CreateTeacher(List sl) {
-        Teacher t = CreateTeacher(sl);
+        Teacher t = CreateTeacher.CreateTeacher(sl);
         return t;
     }
 
